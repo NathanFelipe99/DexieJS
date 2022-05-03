@@ -1,24 +1,19 @@
 async function insert(database, table, data) {
-    const inserted = await database.table(table).add(data);
-    return inserted;
+    return await database.table(table).add(data);
 }
 
 async function getAll(database, table) {
-    const foundAll = database.table(table).toArray();
-    return foundAll;
+    return await database.table(table).toArray();
 }
 
 async function getOne(database, table, clause, value) {
-    const found = database.table(table).where(clause).equals(value).toArray();
-    return found;
+    return await database.table(table).where(clause).equals(value).toArray();
 }
 
 async function update(database, table, value, data) { 
-    const updated = await database.table(table).where('id').equals(value).modify(data);
-    return updated;
+    return await database.table(table).where('id').equals(value).modify(data);
 }
 
 async function deleteOne(database, table, value) { 
-    const deleted = await database.table(table).where('id').equals(value).delete();
-    return deleted;
+    return await database.table(table).where('id').equals(value).delete();
 }
